@@ -34,7 +34,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         
         // Stop the activity indicator
         // Hides automatically if "Hides When Stopped" is enabled
-        activityIndicator.stopAnimating()
+       // activityIndicator.stopAnimating()
         
     }
     
@@ -56,7 +56,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
-                self.activityIndicator?.startAnimating()
                 self.activityIndicator?.stopAnimating()
             }
             
@@ -85,6 +84,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         
         
         return cell
+    }
+    
+    func showActivityIndicatory(uiView: UIView) {
+        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+        actInd.center = uiView.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        uiView.addSubview(actInd)
+        activityIndicator.startAnimating()
     }
     
     
