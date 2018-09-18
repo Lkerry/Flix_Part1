@@ -29,6 +29,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         tableView.dataSource = self
         fetchMovies()
         
+        
         // Start the activity indicator
         activityIndicator.startAnimating()
         
@@ -78,11 +79,25 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         
         let posterPathString = movie["poster_path"] as! String
         let baseURLString = "https://image.tmdb.org/t/p/w500"
-        
         let posterURL = URL(string: baseURLString + posterPathString)!
         cell.posterImageView.af_setImage(withURL: posterURL)
         
+        let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connexion appears to be offline.", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
         
+        // create a cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            // handle cancel response here. Doing nothing will dismiss the view.
+        }
+        // add the cancel action to the alertController
+        alertController.addAction(cancelAction)
+        
+        // create an OK action
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // handle response here.
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
         return cell
     }
     
