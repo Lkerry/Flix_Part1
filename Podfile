@@ -7,7 +7,7 @@ target 'Flix_Part1' do
 
   # Pods for Flix_Part1
  pod 'Alamofire', '~> 4.4'
-  pod 'AlamofireImage'
+  pod 'AlamofireImage', '~> 3.4'
     
 
   target 'Flix_Part1Tests' do
