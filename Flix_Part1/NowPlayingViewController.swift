@@ -22,6 +22,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 170
+        tableView.estimatedRowHeight = 220
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
@@ -58,6 +61,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
                 self.activityIndicator?.stopAnimating()
+                
             }
             
         }
@@ -85,6 +89,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connexion appears to be offline.", preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
         
+        
+        // UIAlert Connexion
         // create a cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             // handle cancel response here. Doing nothing will dismiss the view.
@@ -99,6 +105,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         // add the OK action to the alert controller
         alertController.addAction(OKAction)
         return cell
+        
     }
     
     func showActivityIndicatory(uiView: UIView) {
