@@ -1,11 +1,8 @@
-# Flix_Part1
-This project lets users view a list of movies sourced from the The Movie Database API. To retrieve movies from the API, you will leverage some of iOS's built in networking classes to send network requests. After fetching the data, you will display the list of movies using a table view which will allow users to scroll to view the entire list of movies.
-
 # Project 1 - *Flix_Part1*
 
 **Flix_Part1** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **1** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
